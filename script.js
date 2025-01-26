@@ -190,7 +190,7 @@ gsap.from(".skills-right .skills-icons img", {
         markers: false               // Disable markers for a cleaner view
     },
     opacity: 0,      // Start with opacity 0
-    x: 100,          // Start from the right
+    x: 10,          // Start from the right
     stagger: 0.1,    // Stagger animations for each icon
     duration: 1,     // Duration of animation
 });
@@ -204,7 +204,7 @@ gsap.from(".skills-left .skills-item", {
         markers: false               // Disable markers for a cleaner view
     },
     opacity: 0,       // Start with opacity 0
-    x: -70,          // Start from the left
+    x: -5,          // Start from the left
     stagger: 0.2,     // Stagger the animations for each item
     duration: 10,      // Duration of the animation
 })
@@ -220,6 +220,7 @@ gsap.to(window, {
         scrub: true,                 // Sync scroll with animation
         markers: false               // Disable scroll trigger markers for a clean look
     }
+    
 });
 
 });

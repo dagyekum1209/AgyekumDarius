@@ -10,6 +10,10 @@ html {
   box-sizing: border-box;
 }
 
+html, body {
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  width: 100%; /* Ensure the width is 100% of the viewport */
+}
 
 
 body {
@@ -64,6 +68,42 @@ nav ul li a:hover {
   color: red;
 }
 
+@media screen and (max-width: 390px) {
+  header {
+    padding: 10px;
+  }
+
+  header nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-right: 0;
+  }
+
+  nav ul .left {
+    order: 0;
+    margin-left: 0;
+  }
+
+  nav ul .center {
+    display: flex;
+    gap: 10%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  nav ul .right {
+    order: 2;
+    margin-left: 0;
+  }
+
+  header nav ul li a {
+    font-size: 14px;
+  }
+}
+
 @media (max-width: 768px) {
   nav ul {
       flex-wrap: wrap;
@@ -90,6 +130,7 @@ nav ul li a:hover {
   position: relative;
   background: url('C533EE10-3CD1-4630-9694-D8C5178D5F8B.jpg') no-repeat center center / cover;
 }
+
 
 .hero::after {
   content: '';
@@ -144,47 +185,33 @@ nav ul li a:hover {
   margin: 0 auto 30px;
   text-transform: uppercase;
   position: absolute;
-  top: 0;
+  top: -10px;
   left: -645px;
   font-size: 50px;
   font-weight: 300;
 }
 
-@media screen and (max-width: 768px) {
-  .hero-content p {
-    left: -200px; /* Adjust the left position */
-    font-size: 30px; /* Reduce font size */
-    bottom: 20%; /* Shift slightly downward */
-    max-width: 400px; /* Decrease max width */
-    transform: translate(-30px, 170px);
-  }
-}
-
 /* Responsive adjustments for mobile devices */
 @media screen and (max-width: 390px) {
   .hero-content p {
-    position: static; /* Remove absolute positioning */
-    text-align: center; /* Center the text */
-    font-size: 50px; /* Further reduce font size */
-    max-width: 100%; /* Allow full width */
-    margin: 20px 0; /* Add spacing around the text */
-    bottom: 10%;
+    position: relative; /* Remove absolute positioning */
+    font-size: 30px; /* Further reduce font size */
+    text-align: left; /* Align text to the left */
+    top: 200px; /* Reset top positioning */
+    left: -93px; /* Reset left positioning */
+    margin: 0 10px; /* Add some margin for better spacing */
   }
 }
 
-@media (max-width: 1199px) and (min-width: 768px) {
+@media (max-width: 390px) {
   .hero-wide-text {
-      font-size: 200px;
-      bottom: 10%;
+      font-size: 80px;
+      bottom: 15%;
+      align-content: center;
   }
 }
 
-@media (max-width: 767px) {
-  .hero-wide-text {
-      font-size: 100px;
-      bottom: 10%;
-  }
-}
+
 @media screen and (max-width: 768px) {
   .right-side-paragraph {
     right: 70px; /* Reduce the offset from the right */
@@ -194,6 +221,49 @@ nav ul li a:hover {
   }
 }
 
+/* For devices with width 390px or less (iPhone 12) */
+@media screen and (max-width: 390px) {
+  .right-side-paragraph {
+    right: 15px !important; /* Further reduce the offset */
+    top: 73.5% !important; /* Keep it centered vertically */
+    font-size: 10px !important; /* Adjust font size for readability */
+    max-width: 180px; /* Adjust width further */
+    text-align: center; /* Center-align text for better presentation */
+  }
+}
+  .scroll-indicator .scroll-text {
+    font-size: 7px; /* Adjust font size */
+  }
+
+  .scroll-indicator .scroll-line {
+    height: 8px; /* Adjust height */
+  }
+
+  .scroll-indicator .mouse {
+    width: 18px; /* Adjust width */
+    height: 28px; /* Adjust height */
+  }
+
+/* Example for Flexbox */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center content */
+  align-items: center;
+}
+
+/* Example for Grid */
+.portfolio-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+  gap: 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 @media screen and (max-width: 480px) {
   .right-side-paragraph {
     right: 20px; /* Further reduce the offset */
@@ -257,7 +327,13 @@ z-index: 5;
   border-radius: 50%;
   transform: translateX(-50%);
 }
+@media screen and (max-width: 390px) {
+  .scroll-indicator {
+    bottom: 70px; /* Adjust the vertical position */
 
+  }
+  
+}
 /* New Section */
 .new-section {
   background-color: white;
@@ -408,61 +484,47 @@ z-index: 5;
     height: 200px;
     object-fit: cover;
 }
-@media screen and (max-width: 480px) {
+/* For devices with width 390px or less (iPhone 12) */
+@media screen and (max-width: 390px) {
+  .skills-section {
+    padding: 50px 10px; /* Adjust padding for smaller screens */
+  }
+
   .skills-title {
-      font-size: 16vw;
+    font-size: 16vw; /* Adjust font size for mobile */
   }
 
   .skills-icons {
-      flex-direction: row;
-      gap: 20px;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap; /* Allow icons to wrap to the next line */
+    justify-content: center; /* Center-align the icons horizontally */
   }
 
   .skills-icons img {
-      width: 50px;
-      height: 50px;
+    width: 20px;
+    height: 20px;
   }
 
   .skills-images {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for food images */
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Default: 4 columns */
-    gap: 20px;
+    gap: 10px; /* Reduce spacing between images */
     margin-top: 20px;
     justify-items: center; /* Center-align images in each grid cell */
+    flex-direction: row;
+    flex-wrap: wrap;
   }
-  
+
   .skills-images img {
-    width: 100%; /* Adjust image width dynamically */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 200px; /* Limit the maximum width for consistency */
+    width: 150px; /* Full width for small screens */
+    height: 150px; /* Maintain aspect ratio */
+    max-width: 150px; /* Limit the maximum width for consistency */
     object-fit: cover; /* Ensure images fill their area while keeping proportions */
     border-radius: 8px; /* Add slight rounding for aesthetics (optional) */
+    gap: 1px ;
   }
 }
-  /* For devices with width 768px or less (tablets & smaller) */
-  @media screen and (max-width: 768px) {
-    .skills-images {
-      grid-template-columns: repeat(3, 1fr); /* 3 columns for tablets */
-      gap: 15px; /* Reduce gap for smaller screens */
-    }
-  
-    .skills-images img {
-      max-width: 150px; /* Adjust max width for tablets */
-    }
-  }
-  
-  /* For devices with width 480px or less (mobile phones) */
-  @media screen and (max-width: 480px) {
-    .skills-images {
-      grid-template-columns: 1fr; /* Single column for mobile */
-      gap: 10px; /* Reduce spacing between images */
-    }
-  
-    .skills-images img {
-      max-width: 100%; /* Full width for small screens */
-    }
-  }
-  
 /* Portfolio Section */
 .portfolio-section {
 display: flex;
