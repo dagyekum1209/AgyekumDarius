@@ -165,7 +165,7 @@ nav ul li a:hover {
   .hero-content p {
     position: static; /* Remove absolute positioning */
     text-align: center; /* Center the text */
-    font-size: 20px; /* Further reduce font size */
+    font-size: 40px; /* Further reduce font size */
     max-width: 100%; /* Allow full width */
     margin: 20px 0; /* Add spacing around the text */
     bottom: 10%;
